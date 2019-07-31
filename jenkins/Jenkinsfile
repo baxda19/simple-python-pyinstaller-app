@@ -12,7 +12,9 @@ pipeline {
             }
         }
         stage('Deliver') {
-            deleteDir()
+            always {
+                deleteDir()
+            }
             agent {
                 docker {
                     image 'cdrx/pyinstaller-windows:python2'
