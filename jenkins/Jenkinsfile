@@ -18,7 +18,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'sudo chown -R $USER: ~/.wine && pyinstaller --onefile sources/add2vals.py'
+                sh 'sudo pyinstaller --onefile sources/add2vals.py'
             }
             post {
                 success {
