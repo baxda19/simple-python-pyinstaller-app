@@ -15,7 +15,7 @@ pipeline {
             agent {
                 docker {
                     image 'cdrx/pyinstaller-windows:python2'
-                    args '-u root:sudo -v "$(pwd):/src/"'
+                    args '-u root:sudo -v "pwd":"/src/"'
                 }
             }
             steps {
