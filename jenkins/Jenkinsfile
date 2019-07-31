@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python -m pip install --upgrade pip && pip install -r requirements.txt && pyinstaller --onefile sources/Personnel.py'
+                sh 'wine pip install --upgrade pip && wine pip install -r requirements.txt && pyinstaller --onefile sources/Personnel.py'
             }
             post {
                 success {
