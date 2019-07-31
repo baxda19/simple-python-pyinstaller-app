@@ -22,7 +22,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pyinstaller -y sources/add2vals.py'
+                sh 'pyinstaller -y --onedir sources/add2vals.py'
             }
             post {
                 success {
