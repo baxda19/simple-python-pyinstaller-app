@@ -1,7 +1,6 @@
 import pyautogui, csv, pyperclip
 from time import sleep
 from ConfigParser import SafeConfigParser
-from pandas import read_csv
 
 #Intro
 print "Project:     MAJEV - Inventory Updater"
@@ -50,9 +49,14 @@ print ""
 CSVFile = FileLocation + File
 print "Reading CSV File: ",CSVFile, " ..."
 
-Inventory = read_csv(CSVFile)
+with open(CSVFile) as f:
+    reader = csv.reader(f)
+    next(reader)
+    data = []
+    for row in reader:
+        data.append(row)
 
-print Inventory
+print data
 print "CSV File read to Pandas DataFrame"
 
 
