@@ -9,11 +9,11 @@ pipeline {
                 }
             }
             steps {
-                sh 'python -m pip install --upgrade pip && pip install -r requirements.txt && pyinstaller --onefile sources/MAJEV_Inventory_Update.py && mv sources/config.ini dist/config.ini'
+                sh 'python -m pip install --upgrade pip && pip install -r requirements.txt && pyinstaller --onefile sources/MAJEV_Inventory.py && mv sources/config.ini dist/config.ini'
             }
             post {
                 success {
-                    archiveArtifacts 'dist/MAJEV_Inventory_Update.exe'
+                    archiveArtifacts 'dist/MAJEV_Inventory.exe'
                     archiveArtifacts 'dist/config.ini'
                 }
             }
