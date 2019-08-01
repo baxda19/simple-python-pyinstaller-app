@@ -58,9 +58,8 @@ with open(CSVFile) as f:
         if row_count == 0:
             print row.keys()
         print row.values()
+        row_count += 1
 
 print "CSV File read to Pandas DataFrame"
-
-
 
 print "Shutting Down...."
