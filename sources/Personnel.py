@@ -1,7 +1,7 @@
 import pyautogui, csv, pyperclip
 from time import sleep
 
-file = input("Press enter CSV file name:")
+file = raw_input("Press enter CSV file name:")
 
 with open(file) as f:
     reader = csv.reader(f)
@@ -20,7 +20,7 @@ print (row_count)
 
 #confirm correct data has been imported
 while True:
-    reply = input("Press y to continue")
+    reply = raw_input("Press y to continue")
     print (reply)
     if reply == 'y':
         break
@@ -40,7 +40,7 @@ def typewait(typevalue, delay, typeinterval):
     sleep(delay)
 
 #define counting variables
-i = int(input("What row should the script start from?"))
+i = int(raw_input("What row should the script start from?"))
     
 pyautogui.hotkey('alt', 'tab')
 
@@ -74,7 +74,7 @@ while i < row_count:
 
 while True:
     pyautogui.hotkey('tab')
-    reply = input("Press y to continue")
+    reply = raw_input("Press y to continue")
     print (reply)
     if reply == 'y':
         break
