@@ -2,6 +2,20 @@ import pyautogui, csv, pyperclip
 from time import sleep
 from ConfigParser import SafeConfigParser
 
+#Functions
+def printTable(myDict, colList=None):
+   """ Pretty print a list of dictionaries (myDict) as a dynamically sized table.
+   If column names (colList) aren't specified, they will show in random order.
+   Author: Thierry Husson - Use it as you want but don't blame me.
+   """
+   if not colList: colList = list(myDict[0].keys() if myDict else [])
+   myList = [colList] # 1st row = header
+   for item in myDict: myList.append([str(item[col] if item[col] is not None else '') for col in colList])
+   colSize = [max(map(len,col)) for col in zip(*myList)]
+   formatStr = ' | '.join(["{{:<{}}}".format(i) for i in colSize])
+   myList.insert(1, ['-' * i for i in colSize]) # Seperating line
+   for item in myList: print(formatStr.format(*item))
+
 #Intro
 print "Project:     MAJEV - Inventory Updater"
 print "Author:      Jacob Baxter Davis"
@@ -51,8 +65,8 @@ print "Reading CSV File: ",CSVFile, " ..."
 
 with open(CSVFile) as f:
     csv_reader = csv.DictReader(f)
-    for row in csv_reader:
-        print row
+    printTable(csv_reader)
+
 
 print "CSV File read to Pandas DataFrame"
 
