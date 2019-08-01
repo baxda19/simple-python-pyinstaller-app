@@ -1,6 +1,7 @@
 import pyautogui, csv, pyperclip
 from time import sleep
 from ConfigParser import SafeConfigParser
+import pandas as pd
 
 #Intro
 print "Project:     MAJEV - Inventory Updater"
@@ -12,7 +13,7 @@ print "Config:      Taken from 'config.ini'"
 print "===================================================================================="
 print ""
 
-print "Reading Config File...."
+print "Reading Config File..."
 parser = SafeConfigParser()
 parser.read('config.ini')
 
@@ -43,5 +44,17 @@ TypeInterval = parser.get('Typing', 'TypeInterval')
 Delay = parser.get('Typing', 'Delay')
 print "TypeInterval:    ", TypeInterval
 print "Delay:           ", Delay
+print ""
+
+#Loading CSV File
+CSVFile = FileLocation + File
+print "Reading CSV File: ",CSVFile, " ..."
+
+Inventory = pd.read_csv(CSVFile)
+
+print Inventory
+print "CSV File read to Pandas DataFrame"
+
+
 
 print "Shutting Down...."
