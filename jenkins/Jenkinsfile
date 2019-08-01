@@ -14,7 +14,7 @@ pipeline {
             post {
                 success {
                     archiveArtifacts 'dist/MAJEV_Inventory_Update.exe'
-                    archiveArtifacts 'dist/config.ini'
+                    archiveArtifacts 'sources/config.ini'
                 }
             }
         }
