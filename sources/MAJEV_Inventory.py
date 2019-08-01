@@ -51,8 +51,9 @@ print "Reading CSV File: ",CSVFile, " ..."
 
 with open(CSVFile) as f:
     csv_reader = csv.DictReader(f)
+    for row in csv_reader:
+        print row
 
-print csv_reader
 print "CSV File read to Pandas DataFrame"
 
 
