@@ -50,13 +50,9 @@ CSVFile = FileLocation + File
 print "Reading CSV File: ",CSVFile, " ..."
 
 with open(CSVFile) as f:
-    reader = csv.reader(f)
-    next(reader)
-    data = []
-    for row in reader:
-        data.append(row)
+    csv_reader = csv.DictReader(f)
 
-print data
+print csv_reader
 print "CSV File read to Pandas DataFrame"
 
 
